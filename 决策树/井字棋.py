@@ -240,10 +240,7 @@ def judgeLocation(location):
             return result
 
 
-# In[21]:
 
-
-count  =  0
 def main():
     
     print u'***井字棋博弈***'
@@ -301,9 +298,14 @@ def main():
             break        
         
         print u'选择下一步落点'
-        point = raw_input()
-        raw = int(point[0])
-        column = int(point[2])
+        while True:
+            point = raw_input()
+            raw = int(point[0])
+            column = int(point[2])
+            if location[(raw-1)*3 + (column-1)] == 0:
+                break
+            print u'输入值有误，请重新输入'
+        
         location[(raw-1)*3 + (column-1)] = -1
 
 
